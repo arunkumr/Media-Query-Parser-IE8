@@ -8,6 +8,7 @@ Use this script only if you:
   - You already use Jquery as part of your project.
   - You only want to support IE8 with this script.
   - You are feeling adventorous and want to try something new
+  - You created a responsive website with neat features possibly with bootstrap as your framework and finally the requirement reads support is required for IE8.
 
 Otherwise you are better of with [Respond.js]
 
@@ -24,7 +25,7 @@ Usage:(To prevent reflow recommend adding this and Jquery to ```<head>``` )
 
 
 
-Also if you would like to disable responsiveness for this script modify the second line of this script to:
+Also if you would like to disable responsiveness(which you should) for this script modify the second line of this script to:
 ```
 //Configuration
 var nonResponsive = true;
