@@ -1,3 +1,7 @@
+//IE8Respond.min.js
+//Version:0.0.1
+//Author:Arun Kumar
+
 //Configuration
 var nonResponsive = false;
 
