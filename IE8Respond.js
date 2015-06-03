@@ -1,4 +1,4 @@
-//IE8Respond.min.js
+//IE8Respond.js
 //Version:0.0.1
 //Author:Arun Kumar
 
