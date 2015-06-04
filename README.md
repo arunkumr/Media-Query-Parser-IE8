@@ -16,7 +16,7 @@ This script is very much new and i have made several assumptions,may not have fo
 
 
 
-Usage:(To prevent reflow recommend adding this and Jquery to ```<head>``` )
+Usage:(To prevent reflow recommend adding this and Jquery to the last of  ```<head>```)
 ```
 <!--[if lt IE 9 ]>
     <script type="text/javascript" src="IE8Respond.js"></script>
