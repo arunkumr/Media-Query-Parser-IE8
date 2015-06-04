@@ -25,10 +25,15 @@ Usage:(To prevent reflow recommend adding this and Jquery to ```<head>``` )
 
 
 
-Also if you would like to disable responsiveness(which you should) for this script modify the second line of this script to:
+Also if you would like to disable responsiveness in this script modify the second line of this script to:
 ```
 //Configuration
 var nonResponsive = true;
+```
+
+And to redraw the page only after resize is complete, set the variable value resizeEnd as true(recommended for better performance):
+```
+var resizeEnd = true;
 ```
 
 
