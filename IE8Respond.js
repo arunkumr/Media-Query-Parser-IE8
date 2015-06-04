@@ -1,18 +1,26 @@
 //IE8Respond.js
-//Version:0.0.1
+//Version:0.0.2
 //Author:Arun Kumar
 
 //Configuration
 var nonResponsive = false;
+var resizeEnd = false;
 
 //Check Jquery
 if ("undefined" == typeof jQuery) { throw new Error("Script Requires jQuery"); }
-else {   
+else {
 
     //Variables
     var mediaQueries = new Array();
     var jsMQ = new Array();
     var $currentCSS;
+
+    // provide a resized event
+    var timer = window.setTimeout(function () { }, 0);
+    $(window).on('resize', function () {
+        resizeEnd ? (window.clearTimeout(timer), timer = window.setTimeout(function () { $(window).trigger("resized") }, 250)) : $(window).trigger("resized");
+    });
+
 
     //Functions
     var readRegEx = function (str, re) {
@@ -26,23 +34,18 @@ else {
         return readRegEx(str, re);
     };
 
-    var styles = $("style,link[rel='stylesheet']").map(function () {
+    mediaQueries = $("style,link[rel='stylesheet']").map(function () {
         if ($(this).is('style')) {
-            return $(this).text();
+            return parseMQs($(this).text());
         }
         else {
             var $href = $(this).attr('href');
             var result;
             $.ajax({ url: $href, success: function (data) { result = data; }, type: "GET", async: false });
 
-            return result;
+            return parseMQs(result);
         }
-    });
-
-    //Code for Execution
-    mediaQueries = styles.map(function () {
-        return parseMQs(this);
-    });
+    });   
 
     $.each(mediaQueries, function (index, value) {
         var minWidth = readRegEx(value, /\(min-width:(.*?)px\)/);
@@ -76,5 +79,5 @@ else {
 
     var $jsMQ = $(jsMQ);
     liveStyle();
-    nonResponsive || $(window).resize(liveStyle);
+    nonResponsive || $(window).on("resized",liveStyle);
 }
